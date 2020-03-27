@@ -88,9 +88,7 @@ if __name__ == '__main__':
             logging.info(event)
 
             events_info+="\n - "+event
-        import pdb
-        pdb.set_trace()
-
+        
         if changed:
             save_current_data(current_data)
             notify2.init('Corona Virus in India')
