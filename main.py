@@ -51,6 +51,7 @@ if __name__ == '__main__':
         for row in all_rows:
 
             columns = ExtractData(row.find_all('td'))
+            
             if columns:
                 #if 5 then it's last row
                 if(len(columns) == 5):
@@ -58,7 +59,10 @@ if __name__ == '__main__':
                     columns.insert(0,'')
                     stats.append(columns)
                     break
-                elif any([s.lower() in columns[1].lower() for s in interested_states]):
+                if interested_states[0] != '':
+                    if any([s.lower() in columns[1].lower() for s in interested_states]):
+                        stats.append(columns)
+                else:
                     stats.append(columns)
 
         past_data = get_past_data()
